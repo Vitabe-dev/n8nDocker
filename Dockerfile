@@ -7,4 +7,4 @@ ENV PORT=5678
 EXPOSE 5678
 
 # Comando padrão para iniciar o N8N
-CMD ["n8n"]
+CMD ["n8n", "start"]
