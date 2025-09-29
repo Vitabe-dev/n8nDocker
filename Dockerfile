@@ -1,21 +1,12 @@
 FROM node:18-alpine
 
-# Instala dependências essenciais
-RUN apk add --no-cache \
-  bash \
-  curl \
-  python3 \
-  make \
-  g++ \
-  openssh \
+RUN apk add --no-cache bash curl python3 make g++ openssh \
   && npm install --location=global n8n
 
-# Cria diretório de trabalho
-WORKDIR /data
+WORKDIR /home/node
 
-# Expõe a porta usada pelo N8N
 ENV PORT=5678
 EXPOSE 5678
 
-# Comando para iniciar o N8N
+# O comando padrão agora é apenas “n8n” (sem “start”)
 CMD ["n8n"]
