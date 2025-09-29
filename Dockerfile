@@ -1,4 +1,4 @@
-https://github.com/Vitabe-dev/n8nDocker.gitFROM n8nio/n8n
+FROM n8nio/n8n
 
 # Define a porta onde o N8N vai escutar internamente
 ENV PORT=5678
