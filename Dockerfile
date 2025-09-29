@@ -1,10 +1,21 @@
-FROM docker.n8n.io/n8nio/n8n:latest
+FROM node:18-alpine
 
-# Define a porta onde o N8N vai escutar internamente
+# Instala dependências essenciais
+RUN apk add --no-cache \
+  bash \
+  curl \
+  python3 \
+  make \
+  g++ \
+  openssh \
+  && npm install --location=global n8n
+
+# Cria diretório de trabalho
+WORKDIR /data
+
+# Expõe a porta usada pelo N8N
 ENV PORT=5678
-
-# Expõe essa porta para que o Railway possa mapeá-la para o mundo externo
 EXPOSE 5678
 
-# Comando padrão para iniciar o N8N
+# Comando para iniciar o N8N
 CMD ["n8n", "start"]
