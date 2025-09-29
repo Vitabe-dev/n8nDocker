@@ -5,8 +5,6 @@ RUN apk add --no-cache bash curl python3 make g++ openssh \
 
 WORKDIR /home/node
 
-COPY ./data ./data  # <- Adicione esta linha se tiver arquivos de importação
-
 ENV PORT=5678
 EXPOSE 5678
 
